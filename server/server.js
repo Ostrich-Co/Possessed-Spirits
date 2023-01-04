@@ -22,6 +22,9 @@ app.use('/', require('./routes/cocktailRoutes'));
  */
 //app.use(express.static(path.resolve(__dirname, '../frontend/client/assets')));
 
+
+// THIS IS NOW UNNECESSARY DUE TO asyncHandler (?)
+
 // app.use((err, req, res, next) => {
 //   const defaultErr = {
 //     log: 'Express error handler caught unknown middleware error',

@@ -1,3 +1,5 @@
+//restructure to SQL
+
 const mongoose = require('mongoose');
 
 //Connect to our MongoDB

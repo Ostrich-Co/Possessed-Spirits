@@ -8,6 +8,8 @@ const baseError = {
 
 const spiritController = {};
 
+// asyncHandler is middleware for handling exceptions inside of async express routes and passing them to error handlers
+// saves us writing our own try/catch for async/await and passes error on to next.
 spiritController.createSpirit = asyncHandler(async (req, res) => {
   const { name, ingredients, liquor, directions, garnish } = req.body;
 
