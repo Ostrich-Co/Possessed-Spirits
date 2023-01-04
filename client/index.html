@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Lobster&family=Roboto:ital@1&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="modal"></div>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Lobster&family=Roboto:ital@1&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <div id="g_id_onload" data-client_id="16755906116-j36mdsgp9qc5s6m7ir67a70fm36nsqho.apps.googleusercontent.com"
+    data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/google-oauth/"
+    data-itp_support="true">
+  </div>
+  <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+    data-size="large" data-logo_alignment="left">
+  </div>
+  <div id="modal"></div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
