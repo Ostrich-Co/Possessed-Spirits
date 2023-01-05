@@ -1,5 +1,4 @@
-//restructure to SQL
-
+/* FIRST SECTION OF COMMENTED CODE WAS HOW APP PREVIOUSLY CONNECTED TO THE MONGO DB */
 // const mongoose = require('mongoose');
 
 // //Connect to our MongoDB
@@ -20,17 +19,60 @@
 
 // module.exports = connectDB;
 
+
+
+/* NEW UPDATES TO CONNECT WITH SQL DB */
+
 const pool = require('./pool.js'); 
 
 const obj = {};
 
-obj.readUser = async (id) => {
+/* SQL QUERY READ ALL THE COCKTAILS */
+obj.readCocktails = async (id) => {
   try {
-    const sql = `SELECT * FROM Cards WHERE _id=$1;`;
-    const data = await pool.query(sql, [id]);
+    // CREATE SQL QUERY TO PREVIEW THE TABLE WITH COCKTAILS
+    const sql = `SELECT * FROM cocktails;`;
+    console.log('getting the sql query', sql)
+
+    // execute database query
+    const data = await pool.query(sql);
+    // console.log('getting the data', data.rows)
+
+    // show all the data from the table 
+    return data.rows;
+  } catch (err) {
+    throw `In db.js:obj.readCocktails: ${err.message}`;
+  }
+}
+
+/* INSERT REQUEST TO CREATE A NEW COCKTAILS */
+obj.createCocktail = async (args) => {
+  try {
+    /* CREATE AN ARRAY WITH THE DATA WE RECEIVED FROM args (args COMES TO US AS AN OBJECT) */
+    const arr = [
+      args['name'],
+      JSON.stringify(args['liquor']),
+      JSON.stringify(args['ingredients']),
+      args['garnish'],
+      JSON.stringify(args['directions']),
+    ];
+
+    /* CREATE A SQL STRING FOR THE QUERY */
+    /* (THE VALUES PLACEHOLDERS WILL BE FILLED IN LATER BY THE 2ND ARG (arr) OF THE QUERY await pool.query(sql, arr) ) */
+    const sql = `INSERT INTO cocktails
+    (name, liquor, ingredients, garnish, directions)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING *;`;
+
+    /* EXECUTE THE QUERY */
+    const data = await pool.query(sql, arr);
+    console.log('data', data); 
+
     return data.rows[0];
 
   } catch (err) {
-    throw `In db.js:obj.readUser: ${err.message}`;
+    throw `In db.js:obj.createCocktail: ${err.message}`;
   }
 }
+
+module.exports = obj;
