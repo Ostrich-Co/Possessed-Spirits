@@ -10,6 +10,8 @@ const Card = ({ cocktail }) => {
   const liquorList = [];
   const liquorData = [];
 
+  // checking the connection - alina 
+
   const getImage = () => {
     const snakeName = name.toLowerCase().replaceAll(' ', '-');
 
