@@ -39,4 +39,21 @@ router.post('/cocktails', async (req, res, next) => {
   }
 });
 
+router.delete('/cocktails/:id', async (req, res, next) => {
+  try {
+    console.log('req.params.id: ', req.params['id']);
+    const { id } = req.params;
+    const deletedRow = await db.deleteCocktail(id);
+    if (!deletedRow) throw `${id}, id of cocktail to be deleted is falsy`;
+    res.status(200).json(deletedRow);
+    // return next();
+  } catch(err) {
+    next({
+      log: 'error deleting cocktail',
+      status: 500,
+      message: { err: err },
+    })
+  }
+})
+
 module.exports = router;

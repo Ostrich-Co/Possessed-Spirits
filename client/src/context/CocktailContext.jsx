@@ -27,8 +27,13 @@ export const CocktailProvider = ({ children }) => {
     }
   };
 
+  // async function getCocktails() {
+  //   const response = await axios.get('http://localhost:8080/');
+  //   setCocktails(response.data);
+  // }
+
   async function getCocktails() {
-    const response = await axios.get('http://localhost:8080/');
+    const response = await axios.get('http://localhost:8080/api/cocktails');
     setCocktails(response.data);
   }
 

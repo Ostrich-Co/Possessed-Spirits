@@ -75,4 +75,20 @@ obj.createCocktail = async (args) => {
   }
 }
 
+obj.deleteCocktail = async (args) => {
+  try {
+    const sql = `DELETE FROM cocktails
+    WHERE id=$1
+    RETURNING *;`;
+
+    const data = await pool.query(sql, [args]);
+    console.log('data: ', data);
+
+    return data.rows[0];
+
+  } catch (err) {
+    throw `In db.js:obj.deleteCocktail: ${err.message}`;
+  }
+}
+
 module.exports = obj;

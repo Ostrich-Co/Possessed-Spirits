@@ -8,7 +8,6 @@ const connectDB = require('./config/db');
 
 /* PREVIOUSLY USED TO CONNECT TO MONGO DB */
 // connectDB();
-// app.use('/', require('./routes/cocktailRoutes'));
 
 /* NEW CHANGES */ 
 const apiRouter = require('./routes/apiRouter.js'); 
@@ -21,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 
+app.use('/', require('./routes/cocktailRoutes'));
 
 /* NEW CHANGES: IMPORT COCKTAILS.JS FILE TO MIGRATE THE DATA TO SQL DB 
 - ONLY NEEDED TO BE RUN ONCE TO POPLULATE SQL DATABASE (WILL CREATE DUPLICATES IF RUN MORE THAN ONCE!)*/

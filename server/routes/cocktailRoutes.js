@@ -24,7 +24,7 @@ router.post('/google-oauth', (req, res) => {
     const userid = payload['sub'];
     // console.log("Payload: ", payload);
     console.log("USER ID: ", userid);
-    res.redirect('http://localhost:5173');
+    res.redirect('http://localhost:5173/app');
   }
   verify().catch(console.error);
 });
