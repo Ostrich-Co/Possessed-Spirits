@@ -3,12 +3,15 @@ import { IoArrowForwardOutline } from 'react-icons/io5';
 import Modal from './Modal';
 
 const Card = ({ cocktail }) => {
-  const { name, directions, ingredients, liquor, garnish, id } = cocktail;
+  // const { name, directions, ingredients, liquor, garnish, id } = cocktail;
+  const { id, name, liquor, ingredients, garnish, directions } = cocktail;
   const [showModal, setShowModal] = useState(false);
   const ingredientList = [];
   const directionsList = [];
   const liquorList = [];
   const liquorData = [];
+  
+  // checking the connection - alina 
 
   const getImage = () => {
     const snakeName = name.toLowerCase().replaceAll(' ', '-');

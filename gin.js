@@ -151,4 +151,3 @@ const ginDrinks = [
         directions: 'STEP 1 Add the gin, lemon juice and simple syrup to a shaker with ice and shake until well-chilled. STEP 2 Strain into a Champagne flute. STEP 3 Top with the Champagne. STEP 4 Garnish with a lemon twist.'
     }
   ];
-  
