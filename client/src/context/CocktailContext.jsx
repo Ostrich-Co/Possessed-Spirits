@@ -7,6 +7,7 @@ export const CocktailProvider = ({ children }) => {
   const [cocktails, setCocktails] = useState([]);
   const [filteredCocktails, setFilteredCocktails] = useState(cocktails);
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [arrCards, setArrCards] = useState([]); // new 
 
   useEffect(() => {
     getCocktails();

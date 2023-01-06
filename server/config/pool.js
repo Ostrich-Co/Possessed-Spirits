@@ -1,5 +1,4 @@
 const path = require('path');
-<<<<<<< HEAD
 const { Pool, /* Client */ } = require('pg'); 
 const { DB_PASSWORD } = require(path.resolve(__dirname, '../../secrets.js')); 
 
@@ -8,21 +7,10 @@ CREATE SECRETS.JS FILE WHERE YOU WILL STORE YOUR ELEPHANT SQL PASSWORD */
 const PG_URI = `postgres://pvalafej:${DB_PASSWORD}@berry.db.elephantsql.com/pvalafej`;
 
 /* USE Pool FROM pg TO CREATE AND MAINTAIN A CONNECTION FOR REQUESTS TO DB */
-=======
-const { Pool } = require('pg'); 
-const { DB_PASSWORD } = require(path.resolve(__dirname, '../../secrets.js')); 
-// const { DB_PASSWORD } = require(path.resolve(__dirname, '../../secrets.js'));
-
-// const PG_URI = `postgres://pvalafej:OQWLyL6isnOEO10-9Q4wCEPhHeMYF6-K@berry.db.elephantsql.com/pvalafej`;
-
-const PG_URI = `postgres://pvalafej:${DB_PASSWORD}@berry.db.elephantsql.com/pvalafej`;
-
->>>>>>> 5a9d78194c00ca26b8bed59889a35da005e1752d
 const pool = new Pool({
     connectionString: PG_URI,
 });
 
-<<<<<<< HEAD
 
 /* NEW CHANGES: CONTINUED -> CREATING THE CONNECTION WITH DATABASE TO MIGRATE FROM DATA TO SQL DB-
 - ONLY NEEDED TO BE RUN ONCE TO POPLULATE SQL DATABASE (WILL CREATE DUPLICATES IF RUN MORE THAN ONCE!)
@@ -78,12 +66,3 @@ module.exports = {
 
 // -> SQL COMMAND TO GET RID OF DUPLICATES
 // DELETE FROM cocktails WHERE ID NOT IN (   SELECT MAX(ID) AS MaxRecordID FROM cocktails  GROUP BY name); 
-=======
-function query(text, params) {
-    return pool.query(text, params); 
-}
-
-module.exports = {
-    query, 
-}
->>>>>>> 5a9d78194c00ca26b8bed59889a35da005e1752d
