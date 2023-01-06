@@ -3,16 +3,20 @@ import Card from './Card';
 import Filters from './Filters';
 import MobileFilters from './MobileFilters';
 import MobileHeader from './MobileHeader';
+import CocktailForm from './CocktailForm';
 import CocktailContext from '../context/CocktailContext';
 
 function CardList() {
   const { filteredCocktails, selectedFilter, setSelectedFilter } =
     useContext(CocktailContext);
 
+// 
+
   return (
     <>
       <MobileHeader />
       <MobileFilters select={setSelectedFilter} selected={selectedFilter} />
+      <CocktailForm select={setSelectedFilter} selected={selectedFilter} />
       <header className="site-header pos-fixed vh-100 bg-light hide-mobile">
         <div className="container">
           <div className="logo">

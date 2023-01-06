@@ -50,10 +50,10 @@ obj.createCocktail = async (args) => {
   try {
     /* CREATE AN ARRAY WITH THE DATA WE RECEIVED FROM args (args COMES TO US AS AN OBJECT) */
     const arr = [
-      args['name'],
+      JSON.stringify(args['name']),
       JSON.stringify(args['liquor']),
       JSON.stringify(args['ingredients']),
-      args['garnish'],
+      JSON.stringify(args['garnish']),
       JSON.stringify(args['directions']),
     ];
 
